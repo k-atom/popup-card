@@ -26,6 +26,7 @@ createPopup({
 
 ## Param
 
+### createPopup()
 * body
   * string | jquery object
   * object 
@@ -89,3 +90,5 @@ createPopup({
     content: string
   }
   ```
+
+### closePopup()
