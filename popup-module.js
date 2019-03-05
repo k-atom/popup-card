@@ -1,41 +1,5 @@
-/**
- * [createPopup]
- * Create Popup Card
- *
- * @param  {[object]} options
- * [append it to card]
- *
- * [options]
- * {
- *   body: string,
- *   class: {
- *       head: string,
- *       head_title: string,
- *       body: string,
- *       tail: string,
- *       close: string
- *   },
- *   close: boolean,
- *   head: string,
- *   tail: string,
- *   type: string
- * }
- *
- * [options.type is the top color of the popup card]
- * +--------------+---------+
- * | options.type |  color  |
- * +--------------+---------+
- * |       danger | #d9534f |
- * +--------------+---------+
- * |      default | #ff98aa |
- * +--------------+---------+
- * |        green | #2ecc71 |
- * +--------------+---------+
- */
-function createPopup(options)
-{
-    let
-        card,
+function createPopup(options) {
+    let card,
         card_body,
         card_head,
         card_tail,
@@ -44,73 +8,57 @@ function createPopup(options)
 
     if (!options.body && !(options.head || options.close || options.tail)) { return; }
 
-    card = $('<div>',
-    {
+    card = $('<div>', {
         class: 'popup__card scrollbar-custom',
-        click: function(e)
-        {
+        click: function(e) {
             e.stopPropagation();
         }
     });
 
     // add type
     // type is border top class card
-    if (options.type && typeof options.type === 'string')
-    {
+    if (options.type && typeof options.type === 'string') {
         card.addClass('popup__card--' + options.type);
     }
 
     // add id
     // id is id attribute of card
-    if (options.id && typeof options.id === 'string')
-    {
+    if (options.id && typeof options.id === 'string') {
         card.attr('id', options.id);
     }
 
-    if (options.head || options.close)
-    {
-        card_head = $('<div>',
-        {
+    if (options.head || options.close) {
+        card_head = $('<div>', {
             class: 'popup__card__head'
         });
 
-        if (typeof options.card_head === 'string' || options.card_head instanceof jQuery == true)
-        {
+        if (typeof options.card_head === 'string' || options.card_head instanceof jQuery == true) {
             card_head.append(options.card_head);
         }
-        else if (typeof options.card_head === 'object')
-        {
-            if (options.card_head.class != undefined && typeof options.card_head.class === 'string')
-            {
+        else if (typeof options.card_head === 'object') {
+            if (options.card_head.class != undefined && typeof options.card_head.class === 'string') {
                 card_head.addClass(options.card_head.class);
             }
 
-            if (options.card_head.content != undefined && typeof options.card_head.content === 'string')
-            {
+            if (options.card_head.content != undefined && typeof options.card_head.content === 'string') {
                 card_head.append(options.card_head.content);
             }
         }
 
-        if (options.head)
-        {
-            let title_el = $('<div>',
-            {
+        if (options.head) {
+            let title_el = $('<div>', {
                 class: 'title'
             });
 
-            if (typeof options.head === 'string' || options.head instanceof jQuery == true)
-            {
+            if (typeof options.head === 'string' || options.head instanceof jQuery == true) {
                 title_el.append(options.head);
             }
-            else if (typeof options.head === 'object')
-            {
-                if (options.head.class != undefined && typeof options.head.class === 'string')
-                {
+            else if (typeof options.head === 'object') {
+                if (options.head.class != undefined && typeof options.head.class === 'string') {
                     title_el.addClass(options.head.class);
                 }
 
-                if (options.head.content != undefined && typeof options.head.content === 'string')
-                {
+                if (options.head.content != undefined && typeof options.head.content === 'string') {
                     title_el.append(options.head.content);
                 }
             }
@@ -118,35 +66,25 @@ function createPopup(options)
             card_head.append(title_el);
         }
 
-        if (options.close)
-        {
-            let close_el = $('<div>',
-            {
+        if (options.close) {
+            let close_el = $('<div>', {
                 class: 'close__icon',
                 id: 'close-icon',
-                click: () =>
-                {
-                    closePopup();
-                }
+                click: () => { closePopup(); }
             });
 
-            if (typeof options.close === 'boolean' && options.close === true)
-            {
+            if (typeof options.close === 'boolean' && options.close === true) {
                 close_el.addClass('fa fa-times');
             }
-            else if (typeof options.close === 'string')
-            {
+            else if (typeof options.close === 'string') {
                 close_el.text(options.close);
             }
-            else if (typeof options.close === 'object')
-            {
-                if (options.close.class != undefined && typeof options.close.class === 'string')
-                {
+            else if (typeof options.close === 'object') {
+                if (options.close.class != undefined && typeof options.close.class === 'string') {
                     close_el.addClass(options.close.class);
                 }
 
-                if (options.close.content != undefined && typeof options.close.content === 'string')
-                {
+                if (options.close.content != undefined && typeof options.close.content === 'string') {
                     close_el.text(options.close.content);
                 }
             }
@@ -157,31 +95,24 @@ function createPopup(options)
         card.append(card_head);
     }
 
-    if (options.body)
-    {
-        card_body = $('<div>',
-        {
+    if (options.body) {
+        card_body = $('<div>', {
             class: 'popup__card__body'
         });
 
-        if (typeof options.body === 'string' || options.body instanceof jQuery == true)
-        {
+        if (typeof options.body === 'string' || options.body instanceof jQuery == true) {
             card_body.append(options.body);
         }
-        else if (typeof options.body === 'object')
-        {
-            if (options.body.overflow == undefined || options.body.overflow != true)
-            {
+        else if (typeof options.body === 'object') {
+            if (options.body.overflow == undefined || options.body.overflow != true) {
                 card_body.addClass('popup__card__body--limit_height');
             }
 
-            if (options.body.class != undefined && typeof options.body.class === 'string')
-            {
+            if (options.body.class != undefined && typeof options.body.class === 'string') {
                 card_body.addClass(options.body.class);
             }
 
-            if (options.body.content != undefined && typeof options.body.content === 'string')
-            {
+            if (options.body.content != undefined && typeof options.body.content === 'string') {
                 card_body.append(options.body.content);
             }
         }
@@ -189,26 +120,20 @@ function createPopup(options)
         card.append(card_body);
     }
 
-    if (options.tail)
-    {
-        card_tail = $('<div>',
-        {
+    if (options.tail) {
+        card_tail = $('<div>', {
             class: 'popup__card__tail'
         });
 
-        if (typeof options.tail === 'string' || options.tail instanceof jQuery == true)
-        {
+        if (typeof options.tail === 'string' || options.tail instanceof jQuery == true) {
             card_tail.append(options.tail);
         }
-        else if (typeof options.tail === 'object')
-        {
-            if (options.tail.class != undefined && typeof options.tail.class === 'string')
-            {
+        else if (typeof options.tail === 'object') {
+            if (options.tail.class != undefined && typeof options.tail.class === 'string') {
                 card_tail.addClass(options.tail.class);
             }
 
-            if (options.tail.content != undefined && typeof options.tail.content === 'string')
-            {
+            if (options.tail.content != undefined && typeof options.tail.content === 'string') {
                 card_tail.append(options.tail.content);
             }
         }
@@ -216,8 +141,7 @@ function createPopup(options)
         card.append(card_tail);
     }
 
-    insertHTML = $('<div>',
-    {
+    insertHTML = $('<div>', {
         class: 'popup__background',
         id: 'popup-background',
         click: () => { closePopup(); }
@@ -226,18 +150,15 @@ function createPopup(options)
     insertHTML.append(card);
     insertHTML.appendTo($('body'));
 
-    if (options.lock_body === undefined || options.lock_body === true)
-    {
+    if (options.lock_body === undefined || options.lock_body === true) {
         $('body').css('overflow-y', 'hidden');
     }
 }
 
-function closePopup()
-{
+function closePopup() {
     let popupElement = $('#popup-background');
 
-    if (popupElement.length != 0)
-    {
+    if (popupElement.length != 0) {
         popupElement.last().remove();
         $('body').css('overflow-y', '');
     }
