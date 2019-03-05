@@ -1,3 +1,4 @@
+/* version v0.1.0 */
 function createPopup(options) {
     let card,
         card_body,
@@ -74,7 +75,7 @@ function createPopup(options) {
             });
 
             if (typeof options.close === 'boolean' && options.close === true) {
-                close_el.addClass('fa fa-times');
+                close_el.addClass('fas fa-times');
             }
             else if (typeof options.close === 'string') {
                 close_el.text(options.close);
