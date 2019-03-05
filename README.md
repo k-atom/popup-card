@@ -117,4 +117,4 @@ green | #2ecc71
 
 ### License
 
-popup-card is MIT licensed.
+popup-card is [MIT licensed](https://github.com/k-atom/popup-card/blob/master/LICENSE).
