@@ -32,6 +32,7 @@ createPopup({
 ## Param
 
 ### createPopup()
+
 * body
   * string | jquery object
   * object 
@@ -44,7 +45,7 @@ createPopup({
     overflow: boolean
   }
   ```
-  
+
 * card_head
   * string | jquery object
   * object 
@@ -54,7 +55,7 @@ createPopup({
     content: string
   }
   ```
-  
+
 * close
   * boolean | string
   ```javascript
@@ -90,7 +91,7 @@ createPopup({
   // default true
   // body css('overflow-y', 'hidden')
   ```
-  
+
 * tail
   * string | jquery object
   * object 
@@ -100,5 +101,14 @@ createPopup({
     content: string
   }
   ```
+
+* type
+  * string
+
+type |  color
+----- | -----
+danger | #d9534f
+default | #ff98aa
+green | #2ecc71
 
 ### closePopup()
