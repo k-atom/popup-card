@@ -113,6 +113,8 @@ green | #2ecc71
 
 ### closePopup()
 
-## License
+## Contributing
+
+### License
 
 popup-card is MIT licensed.
