@@ -112,3 +112,7 @@ default | #ff98aa
 green | #2ecc71
 
 ### closePopup()
+
+## License
+
+popup-card is MIT licensed.
