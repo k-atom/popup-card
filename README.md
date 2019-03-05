@@ -59,7 +59,12 @@ createPopup({
   * boolean | string
   ```javascript
   // default false
+  
+  // if close: true
   // default class 'fa fa-times'
+  
+  // if you want use custom class
+  // use object
   ```
   * object 
   ```javascript
