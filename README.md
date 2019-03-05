@@ -6,6 +6,8 @@ devDependencies jquery. font awesome
 
   1. [Examples](https://github.com/k-atom/popup-card#Examples)
   1. [Param](https://github.com/k-atom/popup-card#Param)
+     1. [createPopup](https://github.com/k-atom/popup-card#createpopup)
+     1. [closePopup](https://github.com/k-atom/popup-card#closepopup)
 
 ## Examples
 ```javascript
@@ -13,12 +15,15 @@ devDependencies jquery. font awesome
 
 // create popup card
 createPopup({
+  // use Template literals
   body: `<div>card body</div>`,
   close: 'false',
+  // use JQuery object
   head: $('<div>', {
     class: 'class'
     text: 'card head'
   }),
+  // use String
   tail: 'card tail',
   type: 'default'
 });
