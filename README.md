@@ -20,7 +20,7 @@ createPopup({
   close: 'false',
   // use JQuery object
   head: $('<div>', {
-    class: 'class'
+    class: 'class',
     text: 'card head'
   }),
   // use String
