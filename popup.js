@@ -102,6 +102,7 @@ function createPopup(options) {
         });
 
         if (typeof options.body === 'string' || options.body instanceof jQuery == true) {
+            card_body.addClass('popup__card__body--limit_height');
             card_body.append(options.body);
         }
         else if (typeof options.body === 'object') {
@@ -147,6 +148,11 @@ function createPopup(options) {
         id: 'popup-background',
         click: () => { closePopup(); }
     });
+
+    if (!options.animation) {
+      insertHTML.css('opacity', '.5');
+      insertHTML.animate({opacity: '1'}, 100);
+    }
 
     insertHTML.append(card);
     insertHTML.appendTo($('body'));
